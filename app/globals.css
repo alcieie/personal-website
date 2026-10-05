@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* dark: variants follow the theme toggle, not just the OS setting */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ============================================================
+   COLOURS — the same sunset palette as before.
+   Change a hex here and it updates everywhere.
+   ============================================================ */
+:root {
+  --paper: #fbf6f2;
+  --paper-2: #f2e6de;
+  --card: #ffffff;
+  --ink: #3d3d6b;
+  --ink-soft: #6e6b93;
+  --plum: #8c5f8e;
+  --rose: #d4788f;
+  --coral: #f98f7a;
+  --peach: #f9b27e;
+  --sand: #fad98b;
+  --on-accent: #ffffff;
+  --line: rgba(61, 61, 107, 0.1);
+  --glass: rgba(255, 255, 255, 0.62);
+  --blob-opacity: 0.55;
+}
+
+[data-theme="dark"] {
+  --paper: #171929;
+  --paper-2: #23253c;
+  --card: #1f2136;
+  --ink: #ebe8f5;
+  --ink-soft: #a6a2c4;
+  --plum: #c494c6;
+  --rose: #e6a0b2;
+  --coral: #f9a791;
+  --peach: #f9c69d;
+  --sand: #fae5ad;
+  --on-accent: #1e1f33;
+  --line: rgba(255, 255, 255, 0.08);
+  --glass: rgba(31, 33, 54, 0.6);
+  --blob-opacity: 0.22;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-plum: var(--plum);
+  --color-rose: var(--rose);
+  --color-coral: var(--coral);
+  --color-peach: var(--peach);
+  --color-sand: var(--sand);
+  --color-on-accent: var(--on-accent);
+  --color-line: var(--line);
+  --color-glass: var(--glass);
+
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-display-face), system-ui, sans-serif;
+  --font-hand: var(--font-hand-face), cursive;
+
+  --shadow-soft: 0 10px 40px -12px rgb(61 61 107 / 0.18);
+  --shadow-lift: 0 24px 60px -18px rgb(61 61 107 / 0.3);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-soft);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  /* the custom arrow cursor, carried over from the old page */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%233D3D6B' stroke='%23FFFFFF' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
+}
+[data-theme="dark"] body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%23EBE8F5' stroke='%23191B2E' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
+}
+a, button, [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%23F98F7A' stroke='%23FFFFFF' stroke-width='1.8' stroke-linejoin='round'/%3E%3Ccircle cx='22.5' cy='5.5' r='2.6' fill='%23FAD98B' stroke='%23FFFFFF' stroke-width='1.4'/%3E%3C/svg%3E") 5 3, pointer;
+}
+.draggable { cursor: grab; }
+.draggable:active { cursor: grabbing; }
+
+::selection { background: rgb(249 143 122 / 0.3); }
+
+:focus-visible {
+  outline: 2px solid var(--plum);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   MOTION BITS — soft drifting blobs and a morphing avatar frame
+   ============================================================ */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6vw, 4vh) scale(1.08); }
+  66% { transform: translate(-4vw, 6vh) scale(0.94); }
+}
+@keyframes morph {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  33% { border-radius: 58% 42% 38% 62% / 55% 36% 64% 45%; }
+  66% { border-radius: 38% 62% 52% 48% / 36% 60% 40% 64%; }
+}
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.blob { animation: drift 22s ease-in-out infinite; opacity: var(--blob-opacity); }
+.morph { animation: morph 12s ease-in-out infinite; }
+.breathe { animation: breathe 2.6s ease-in-out infinite; }
+.eq > span { animation: eq 0.9s ease-in-out infinite; transform-origin: bottom; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .blob, .morph, .breathe, .eq > span { animation: none; }
+}
