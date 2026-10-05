@@ -26,7 +26,7 @@ export default function Section({
     >
       <div className="mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-1">
         <h2 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">{title}</h2>
-        {note && <p className="font-hand text-2xl text-plum">{note}</p>}
+        {note && <p className="font-serif text-2xl text-plum italic">{note}</p>}
       </div>
       {children}
     </motion.section>

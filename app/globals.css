@@ -4,7 +4,7 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ============================================================
-   COLOURS — the same sunset palette as before.
+   COLOURS — the sunset palette.
    Change a hex here and it updates everywhere.
    ============================================================ */
 :root {
@@ -24,21 +24,26 @@
   --blob-opacity: 0.55;
 }
 
+/* night: the opposite side of the colour wheel — deep teal into mint.
+   The names stay the same so components don't change; only the hues do.
+   (the greener version: paper #0f1a17, paper-2 #182823, card #15231f,
+   ink #e3f1ea, ink-soft #9db7ab, plum #6fc4a3, rose #86d3bd,
+   coral #9fdc9c, peach #bfe28d, sand #dfe9a2) */
 [data-theme="dark"] {
-  --paper: #171929;
-  --paper-2: #23253c;
-  --card: #1f2136;
-  --ink: #ebe8f5;
-  --ink-soft: #a6a2c4;
-  --plum: #c494c6;
-  --rose: #e6a0b2;
-  --coral: #f9a791;
-  --peach: #f9c69d;
-  --sand: #fae5ad;
-  --on-accent: #1e1f33;
-  --line: rgba(255, 255, 255, 0.08);
-  --glass: rgba(31, 33, 54, 0.6);
-  --blob-opacity: 0.22;
+  --paper: #0d181c;
+  --paper-2: #16272c;
+  --card: #132228;
+  --ink: #e1eff1;
+  --ink-soft: #99b3b9;
+  --plum: #5bb8c4;
+  --rose: #78cbcb;
+  --coral: #8dd6bd;
+  --peach: #a8deb0;
+  --sand: #cde8b9;
+  --on-accent: #0d181c;
+  --line: rgba(225, 239, 241, 0.09);
+  --glass: rgba(19, 34, 40, 0.6);
+  --blob-opacity: 0.16;
 }
 
 @theme inline {
@@ -57,8 +62,8 @@
   --color-glass: var(--glass);
 
   --font-sans: var(--font-body), system-ui, sans-serif;
-  --font-display: var(--font-display-face), system-ui, sans-serif;
-  --font-hand: var(--font-hand-face), cursive;
+  --font-display: var(--font-body), system-ui, sans-serif;
+  --font-serif: var(--font-serif-face), Georgia, serif;
 
   --shadow-soft: 0 10px 40px -12px rgb(61 61 107 / 0.18);
   --shadow-lift: 0 24px 60px -18px rgb(61 61 107 / 0.3);
@@ -80,7 +85,7 @@ body {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%233D3D6B' stroke='%23FFFFFF' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
 }
 [data-theme="dark"] body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%23EBE8F5' stroke='%23191B2E' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%23E1EFF1' stroke='%230D181C' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
 }
 a, button, [role="button"] {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5 3.2 19.4 13.6 12.6 14.4 9.9 21.2Z' fill='%23F98F7A' stroke='%23FFFFFF' stroke-width='1.8' stroke-linejoin='round'/%3E%3Ccircle cx='22.5' cy='5.5' r='2.6' fill='%23FAD98B' stroke='%23FFFFFF' stroke-width='1.4'/%3E%3C/svg%3E") 5 3, pointer;

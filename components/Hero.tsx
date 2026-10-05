@@ -58,14 +58,16 @@ export default function Hero() {
           >
             See what I&apos;ve built
           </motion.a>
-          <motion.a
-            href={site.resume}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.96 }}
-            className="rounded-full border border-line bg-glass px-6 py-3 text-[0.95rem] font-medium text-ink backdrop-blur"
-          >
-            Résumé ↗
-          </motion.a>
+          {site.resume && (
+            <motion.a
+              href={site.resume}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className="rounded-full border border-line bg-glass px-6 py-3 text-[0.95rem] font-medium text-ink backdrop-blur"
+            >
+              Résumé ↗
+            </motion.a>
+          )}
         </motion.div>
       </motion.div>
 

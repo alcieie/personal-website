@@ -13,55 +13,39 @@ export const site = {
   chip: "Electrical Eng · UWaterloo",
   // ✏️ drop your photo in /public (e.g. /public/me.jpg) and set this to "/me.jpg"
   avatar: null as string | null,
-  // ✏️ drop your résumé in /public/resume.pdf
-  resume: "/resume.pdf",
+  // ✏️ the résumé button is hidden while this is null — drop your résumé
+  // in /public/resume.pdf and set this to "/resume.pdf" to bring it back
+  resume: null as string | null,
   email: "alcieylu@gmail.com",
 };
 
 export const socials = [
   { label: "GitHub", href: "https://github.com/alcieie", icon: "github" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: "linkedin" }, // ✏️
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/alcieylu/", icon: "linkedin" },
   { label: "Email", href: "mailto:alcieylu@gmail.com", icon: "mail" },
 ] as const;
 
 /* ------------------------------------------------------------
-   EXPERIENCE — newest first. Copy a block to add another.
+   EXPERIENCE — copy a block to add another.
    ------------------------------------------------------------ */
 export const experience = [
   {
-    role: "Hardware Engineering Intern",
-    where: "Meridian Power Systems",
-    when: "Summer 2026",
-    points: [
-      "Built and tested a power converter prototype, taking it from 88% to 93% efficient.",
-      "Wrote the step-by-step guide the team now uses when a new board arrives.",
-    ],
-  },
-  {
-    role: "Intern Research Associate",
+    role: "Research Intern Associate",
     where: "AristAI",
     when: "Jan – Apr 2026",
     points: [
-      "Set up a test rig for measuring how much energy fast-switching parts waste as heat.",
-      "Automated the measurements in Python — a two-hour job now takes fifteen minutes.",
+      "Wrote 4 Python QA scripts that cut manual accessibility testing by 40%.",
+      "Evaluated model outputs for completeness and safety, making data labelling 15% more accurate.",
+      "Turned WCAG research into evaluation rubrics for the engineering teams.",
     ],
   },
   {
-    role: "Teaching Assistant, Circuits I",
-    where: "Electrical Engineering Dept.",
-    when: "2025 – 2026",
+    role: "Piano Teacher",
+    where: "Rhythmus Studios",
+    when: "Oct 2022 – Sep 2023",
     points: [
-      "Ran weekly labs for around 30 second-year students.",
-      "Rewrote two lab handouts after watching everyone get stuck in the same place.",
-    ],
-  },
-  {
-    role: "Electronics Lead",
-    where: "University Robotics Team",
-    when: "2024 – 2025",
-    points: [
-      "Designed the board that gets power everywhere it needs to go on our competition rover.",
-      "Taught six new members to solder and read a schematic.",
+      "Taught 10 students a week, each with their own practice plan.",
+      "Adapted my teaching to each student's needs and pace, so they could perform recital-ready pieces they enjoy, even on short notice.",
     ],
   },
 ];
@@ -71,39 +55,57 @@ export const experience = [
    ------------------------------------------------------------ */
 export const projects = [
   {
-    title: "A bench power supply, from scratch",
-    blurb:
-      "Adjustable up to 30V with a little screen on the front. Four attempts — the third taught me what a bad ground sounds like.",
-    emoji: "⚡",
-    tags: ["circuit design", "KiCad", "firmware"],
-    tone: "plum",
-    href: "#", // ✏️ link to the repo or writeup
-  },
-  {
-    title: "Soil sensors for a community garden",
-    blurb:
-      "Battery-powered boxes that text you when the beds are dry. About eight months per charge, mostly by sleeping.",
-    emoji: "🌱",
-    tags: ["embedded C", "wireless", "battery life"],
-    tone: "rose",
-    href: "#",
-  },
-  {
-    title: "Guitar pedal that does the maths itself",
-    blurb:
-      "Reverb and delay on an FPGA. It sounds good, and you can't hear any lag, which genuinely surprised me.",
-    emoji: "🎸",
-    tags: ["Verilog", "audio", "FPGA"],
-    tone: "peach",
-    href: "#",
-  },
-  {
     title: "Colour Card",
     blurb:
       "Turns a photo into a palette with k-means in CIELAB space — each band sized by how much of the photo it covers.",
     emoji: "🎨",
     tags: ["HTML", "k-means", "open source"],
+    tone: "plum",
+    href: "https://github.com/alcieie/ColourCard",
+  },
+  {
+    title: "Listening Analytics",
+    blurb:
+      "My Spotify history as a mood-ring trend chart, a listening heatmap, and skip rates by genre and artist.",
+    emoji: "🎧",
+    tags: ["Next.js", "Spotify API", "Postgres"],
+    tone: "rose",
+    href: "https://github.com/alcieie/listening-analytics",
+  },
+  {
+    title: "Smart home climate control",
+    blurb:
+      "An FPGA thermostat that heats or cools on its own, with manual overrides and a vacation mode.",
+    emoji: "🌡️",
+    tags: ["Verilog", "FPGA", "combinational logic"],
+    tone: "peach",
+    href: "#", // ✏️ link to the repo or writeup
+  },
+  {
+    title: "FPGA polarity controller",
+    blurb:
+      "Digital logic on an Altera MAX10, with a switch that flips whether the LEDs light up on high or low.",
+    emoji: "💡",
+    tags: ["Verilog", "FPGA", "digital logic"],
     tone: "sand",
+    href: "#",
+  },
+  {
+    title: "Hospital communication board",
+    blurb:
+      "An ESP32 board for calling a nurse, with lights that follow the time of day to help prevent hospital delirium.",
+    emoji: "🏥",
+    tags: ["C++", "ESP32", "PWM"],
+    tone: "plum",
+    href: "#",
+  },
+  {
+    title: "Conway's Game of Life",
+    blurb:
+      "The zero-player game in Python. Cells live, die and multiply by a few simple rules.",
+    emoji: "🧬",
+    tags: ["Python", "simulation"],
+    tone: "rose",
     href: "#",
   },
 ] as const;
@@ -128,7 +130,7 @@ export const projects = [
 export type Hobby = {
   id: string;
   label: string;
-  note: string;
+  note?: string;
   art?: "camera" | "vinyl" | "disco" | "cupcake" | "film" | "book";
   image?: string;
   x: number;
@@ -143,7 +145,6 @@ export const hobbies: Hobby[] = [
   {
     id: "photo",
     label: "landscape photography",
-    note: "mostly skies, sometimes water",
     art: "camera",
     x: 5, y: 7, size: 140, tilt: -8,
     link: {
@@ -156,13 +157,13 @@ export const hobbies: Hobby[] = [
   {
     id: "music",
     label: "on repeat",
-    note: "ADÉLA",
+    note: "Daniel Caesar",
     art: "vinyl",
     x: 39, y: 3, size: 160, tilt: 0,
     link: {
       platform: "Spotify",
-      handle: "Ain't In LA",
-      href: "https://open.spotify.com/track/02HyFYmpzt02VJ8k0CqxKj",
+      handle: "Disillusioned",
+      href: "https://open.spotify.com/track/4YsnwsPURRSvprBHBY1BCd",
       color: "#1DB954",
     },
   },
@@ -184,7 +185,7 @@ export const hobbies: Hobby[] = [
     label: "reading",
     note: "Charles Dickens",
     art: "book", // ✏️ swap for image: "/hobbies/book.png" when you have a nicer one
-    x: 10, y: 54, size: 110, tilt: -6,
+    x: 24, y: 54, size: 110, tilt: -6,
     link: {
       platform: "Goodreads",
       handle: "A Tale of Two Cities",
@@ -193,19 +194,11 @@ export const hobbies: Hobby[] = [
     },
   },
   {
-    id: "dance",
-    label: "dance",
-    note: "still learning the choreo",
-    art: "disco",
-    x: 44, y: 50, size: 130, tilt: 6,
-  },
-  {
     id: "bake",
     label: "cooking & baking",
     note: "not very good, very enthusiastic",
     art: "cupcake",
-    x: 77, y: 58, size: 115, tilt: 10,
-    // ✏️ replace these placeholders with your own food photos (.jpg is fine)
-    photos: ["/hobbies/cooking/1.svg", "/hobbies/cooking/2.svg", "/hobbies/cooking/3.svg"],
+    x: 60, y: 58, size: 115, tilt: 10,
+    photos: ["/hobbies/cooking/apple.jpg", "/hobbies/cooking/bowl.jpg", "/hobbies/cooking/cookies.jpg"],
   },
 ];

@@ -13,7 +13,7 @@ const tones = {
 
 export default function Projects() {
   return (
-    <Section id="projects" title="Projects" note="the ones I'd actually show you">
+    <Section id="projects" title="Projects">
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => {
           const t = tones[p.tone];
@@ -27,7 +27,8 @@ export default function Projects() {
               transition={{ type: "spring", stiffness: 90, damping: 16, delay: (i % 2) * 0.1 }}
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
-              className="group flex flex-col rounded-[32px] border border-line bg-card/80 p-6 shadow-soft backdrop-blur transition-shadow hover:shadow-lift"
+              // an odd one out at the end stretches across both columns
+              className={`${projects.length % 2 && i === projects.length - 1 ? "md:col-span-2" : ""} group flex flex-col rounded-[32px] border border-line bg-card/80 p-6 shadow-soft backdrop-blur transition-shadow hover:shadow-lift`}
             >
               <motion.div
                 variants={{ hover: { y: -6 } }}

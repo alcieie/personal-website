@@ -122,8 +122,6 @@ function Item({
         </motion.div>
       </motion.div>
 
-      <span className="mt-2 font-hand text-xl leading-none text-ink-soft">{h.label}</span>
-
       <AnimatePresence>
         {open && (h.photos?.length || h.link) && (
           <motion.div
@@ -176,7 +174,7 @@ function Collage({ hobby: h }: { hobby: Hobby }) {
           />
         ))}
       </div>
-      <p className="mt-1 rounded-full bg-card px-3 py-1 font-hand text-lg leading-none text-ink shadow-soft">{h.note}</p>
+      {h.note && <p className="mt-1 rounded-full bg-card px-3 py-1 font-serif text-lg leading-none text-ink italic shadow-soft">{h.note}</p>}
     </div>
   );
 }
@@ -199,7 +197,7 @@ function Card({ hobby: h }: { hobby: Hobby }) {
         )}
       </div>
       <p className="mt-2 font-display text-lg leading-tight font-semibold text-ink">{link.handle}</p>
-      <p className="mt-0.5 text-sm leading-snug">{h.note}</p>
+      {h.note && <p className="mt-0.5 text-sm leading-snug">{h.note}</p>}
       <a
         href={link.href}
         target="_blank"

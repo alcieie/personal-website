@@ -95,8 +95,6 @@ export default function Contact() {
           </motion.a>
         ))}
       </div>
-
-      <p className="mt-10 text-sm">Built by hand · {new Date().getFullYear()}</p>
     </motion.footer>
   );
 }

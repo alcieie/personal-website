@@ -8,7 +8,7 @@ const dots = ["bg-plum", "bg-rose", "bg-peach", "bg-sand"];
 
 export default function Experience() {
   return (
-    <Section id="experience" title="Experience" note="newest first">
+    <Section id="experience" title="Experience">
       <div className="relative space-y-4 pl-7 md:pl-9">
         {/* the soft gradient thread linking every job */}
         <div className="absolute top-3 bottom-3 left-2 w-1 rounded-full bg-gradient-to-b from-plum via-rose to-sand opacity-40 md:left-3" />

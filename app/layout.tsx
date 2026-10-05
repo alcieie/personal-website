@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Plus_Jakarta_Sans, Caveat } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { site } from "@/data/content";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({ variable: "--font-display-face", subsets: ["latin"] });
-const body = Plus_Jakarta_Sans({ variable: "--font-body", subsets: ["latin"] });
-const hand = Caveat({ variable: "--font-hand-face", subsets: ["latin"], weight: "500" });
+const sans = Instrument_Sans({ variable: "--font-body", subsets: ["latin"] });
+const serif = Instrument_Serif({ variable: "--font-serif-face", subsets: ["latin"], weight: "400", style: "italic" });
 
 export const metadata: Metadata = {
   title: site.title,
@@ -23,11 +22,7 @@ try {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${display.variable} ${body.variable} ${hand.variable} antialiased`}
-    >
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${serif.variable} antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
