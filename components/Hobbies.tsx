@@ -156,25 +156,43 @@ const fan = [
 
 function Collage({ hobby: h }: { hobby: Hobby }) {
   const photos = h.photos!.slice(0, 4);
+  // a lone photo gets one wide, centred print instead of a fan of portrait ones
+  const single = photos.length === 1;
   return (
     <div className="flex flex-col items-center">
-      <div className="relative h-48 w-full">
-        {photos.map((src, i) => (
-          <motion.img
-            key={src}
-            src={src}
-            alt=""
-            draggable={false}
-            // every photo starts stacked in the middle, then springs out to its spot
-            initial={{ x: 0, y: 20, rotate: 0, scale: 0.6, opacity: 0 }}
-            animate={{ x: fan[i].x, y: fan[i].y, rotate: fan[i].r, scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.05 }}
-            whileHover={{ scale: 1.12, rotate: 0, zIndex: 10 }}
-            className="absolute top-2 left-1/2 -ml-14 h-36 w-28 rounded-2xl border-4 border-card bg-paper-2 object-cover shadow-lift"
-          />
-        ))}
+      <div className={`relative w-full ${single ? "h-36" : "h-48"}`}>
+        {photos.map((src, i) => {
+          const spot = single ? { x: 0, y: 0, r: -3 } : fan[i];
+          return (
+            <motion.img
+              key={src}
+              src={src}
+              alt=""
+              draggable={false}
+              // every photo starts stacked in the middle, then springs out to its spot
+              initial={{ x: 0, y: 20, rotate: 0, scale: 0.6, opacity: 0 }}
+              animate={{ x: spot.x, y: spot.y, rotate: spot.r, scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.05 }}
+              whileHover={{ scale: 1.12, rotate: 0, zIndex: 10 }}
+              className={`absolute top-2 left-1/2 rounded-2xl border-4 border-card bg-paper-2 object-cover shadow-lift ${
+                single ? "-ml-32 h-28 w-64" : "-ml-14 h-36 w-28"
+              }`}
+            />
+          );
+        })}
       </div>
       {h.note && <p className="mt-1 rounded-full bg-card px-3 py-1 font-serif text-lg leading-none text-ink italic shadow-soft">{h.note}</p>}
+      {h.link && (
+        <a
+          href={h.link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-medium text-white ring-1 ring-white/15 shadow-soft transition-transform hover:scale-105"
+          style={{ background: h.link.color }}
+        >
+          {h.link.handle} on {h.link.platform} <span aria-hidden>↗</span>
+        </a>
+      )}
     </div>
   );
 }

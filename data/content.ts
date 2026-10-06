@@ -79,7 +79,7 @@ export const projects = [
     emoji: "🌡️",
     tags: ["Verilog", "FPGA", "combinational logic"],
     tone: "peach",
-    href: "#", // ✏️ link to the repo or writeup
+    href: null, // ✏️ no link = no arrow; add a URL here to make the card clickable
   },
   {
     title: "FPGA polarity controller",
@@ -88,7 +88,7 @@ export const projects = [
     emoji: "💡",
     tags: ["Verilog", "FPGA", "digital logic"],
     tone: "sand",
-    href: "#",
+    href: null,
   },
   {
     title: "Hospital communication board",
@@ -97,7 +97,7 @@ export const projects = [
     emoji: "🏥",
     tags: ["C++", "ESP32", "PWM"],
     tone: "plum",
-    href: "#",
+    href: null,
   },
   {
     title: "Conway's Game of Life",
@@ -106,7 +106,7 @@ export const projects = [
     emoji: "🧬",
     tags: ["Python", "simulation"],
     tone: "rose",
-    href: "#",
+    href: "#", // ✏️ link to the Game of Life repo
   },
 ] as const;
 
@@ -147,6 +147,7 @@ export const hobbies: Hobby[] = [
     label: "landscape photography",
     art: "camera",
     x: 5, y: 7, size: 140, tilt: -8,
+    photos: ["/hobbies/photo/guilin.jpg"],
     link: {
       platform: "VSCO",
       handle: "@aliceylu",

@@ -17,10 +17,12 @@ export default function Projects() {
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => {
           const t = tones[p.tone];
+          // cards without a link render as a plain box with no arrow
+          const Card = p.href ? motion.a : motion.div;
           return (
-            <motion.a
+            <Card
               key={p.title}
-              href={p.href}
+              href={p.href ?? undefined}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -43,14 +45,16 @@ export default function Projects() {
                   >
                     {p.emoji}
                   </motion.div>
-                  <motion.span
-                    variants={{ hover: { x: 4, y: -4, opacity: 1 } }}
-                    initial={{ opacity: 0.35 }}
-                    className={`text-2xl ${t.arrow}`}
-                    aria-hidden
-                  >
-                    ↗
-                  </motion.span>
+                  {p.href && (
+                    <motion.span
+                      variants={{ hover: { x: 4, y: -4, opacity: 1 } }}
+                      initial={{ opacity: 0.35 }}
+                      className={`text-2xl ${t.arrow}`}
+                      aria-hidden
+                    >
+                      ↗
+                    </motion.span>
+                  )}
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-ink">{p.title}</h3>
                 <p className="mt-2 mb-5 text-[0.95rem]">{p.blurb}</p>
@@ -62,7 +66,7 @@ export default function Projects() {
                   ))}
                 </div>
               </motion.div>
-            </motion.a>
+            </Card>
           );
         })}
       </div>
