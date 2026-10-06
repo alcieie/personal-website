@@ -12,7 +12,7 @@ export const site = {
   status: "2A · Looking for Summer 2027 Co-op",
   chip: "Electrical Eng · UWaterloo",
   // ✏️ drop your photo in /public (e.g. /public/me.jpg) and set this to "/me.jpg"
-  avatar: null as string | null,
+  avatar: "/guilin.jpg" as string | null,
   // ✏️ the résumé button is hidden while this is null — drop your résumé
   // in /public/resume.pdf and set this to "/resume.pdf" to bring it back
   resume: null as string | null,
@@ -147,7 +147,6 @@ export const hobbies: Hobby[] = [
     label: "landscape photography",
     art: "camera",
     x: 5, y: 7, size: 140, tilt: -8,
-    photos: ["/hobbies/photo/guilin.jpg"],
     link: {
       platform: "VSCO",
       handle: "@aliceylu",
