@@ -106,7 +106,7 @@ export const projects = [
     emoji: "🧬",
     tags: ["Python", "simulation"],
     tone: "rose",
-    href: "#", // ✏️ link to the Game of Life repo
+    href: "https://github.com/alcieie/game-of-life-gr-9",
   },
 ] as const;
 
