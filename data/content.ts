@@ -52,6 +52,7 @@ export const experience = [
 
 /* ------------------------------------------------------------
    PROJECTS — `tone` picks the accent colour: plum | rose | peach | sand
+   video: optional demo clip in /public/projects/ — adds a "watch demo" button
    ------------------------------------------------------------ */
 export const projects = [
   {
@@ -71,6 +72,7 @@ export const projects = [
     tags: ["Next.js", "Spotify API", "Postgres"],
     tone: "rose",
     href: "https://github.com/alcieie/listening-analytics",
+    video: "/projects/listening-analytics-demo.mp4",
   },
   {
     title: "Smart home climate control",
