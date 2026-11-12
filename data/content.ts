@@ -12,7 +12,7 @@ export const site = {
   status: "2A · Looking for Summer 2027 Co-op",
   chip: "Electrical Eng · UWaterloo",
   // ✏️ drop your photo in /public (e.g. /public/me.jpg) and set this to "/me.jpg"
-  avatar: "/guilin.jpg" as string | null,
+  avatar: "/hero.jpg" as string | null,
   // ✏️ the résumé button is hidden while this is null — drop your résumé
   // in /public/resume.pdf and set this to "/resume.pdf" to bring it back
   resume: null as string | null,

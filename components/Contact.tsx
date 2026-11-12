@@ -48,15 +48,15 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ type: "spring", stiffness: 70, damping: 16 }}
-      className="mb-10 overflow-hidden rounded-[44px] bg-paper-2 px-6 py-16 text-center"
+      className="mb-10 overflow-hidden rounded-[36px] bg-paper-2 px-6 py-10 text-center"
     >
-      <h2 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">Let&apos;s get in touch!</h2>
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">Let&apos;s get in touch!</h2>
 
       <motion.button
         onClick={copy}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.95 }}
-        className="mt-8 inline-flex items-center gap-2.5 rounded-full bg-card px-6 py-3 text-ink shadow-soft"
+        className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-card px-6 py-3 text-ink shadow-soft"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-ink-soft">
           <rect x="9" y="9" width="12" height="12" rx="2" />
@@ -78,7 +78,7 @@ export default function Contact() {
       </motion.button>
       <span className="sr-only" role="status">{copied ? "Email copied" : ""}</span>
 
-      <div className="mt-8 flex justify-center gap-3">
+      <div className="mt-6 flex justify-center gap-3">
         {socials.map((s) => (
           <motion.a
             key={s.label}

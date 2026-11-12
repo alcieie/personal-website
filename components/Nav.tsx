@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 const links = [
-  { id: "top", label: "hello", desktopOnly: true },
+  { id: "top", label: "intro", desktopOnly: true },
   { id: "experience", label: "experience" },
   { id: "projects", label: "projects" },
   { id: "hobbies", label: "off the clock" },
@@ -25,7 +25,7 @@ export default function Nav() {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
-    // near the very top, always "hello" — the hero can be shorter than half the screen
+    // near the very top, always "intro" — the hero can be shorter than half the screen
     const onScroll = () => scrollY < 120 && setActive("top");
     addEventListener("scroll", onScroll, { passive: true });
     return () => {
