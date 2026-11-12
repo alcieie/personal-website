@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+import { Hanken_Grotesk, IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 import { site } from "@/data/content";
 import "./globals.css";
 
-const sans = Instrument_Sans({ variable: "--font-body", subsets: ["latin"] });
-const serif = Instrument_Serif({ variable: "--font-serif-face", subsets: ["latin"], weight: "400", style: "italic" });
+const body = Hanken_Grotesk({ variable: "--font-body", subsets: ["latin"] });
+const display = Schibsted_Grotesk({ variable: "--font-display-face", subsets: ["latin"] });
+const mono = IBM_Plex_Mono({ variable: "--font-mono-face", subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
   title: site.title,
@@ -22,7 +23,7 @@ try {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${serif.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${body.variable} ${display.variable} ${mono.variable} antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

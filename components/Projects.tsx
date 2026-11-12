@@ -8,22 +8,22 @@ import Section from "./Section";
 
 const tones = {
   plum: {
-    tile: "from-plum/25 to-plum/5",
+    tile: "bg-plum/15",
     tag: "bg-plum/12",
     arrow: "text-plum",
   },
   rose: {
-    tile: "from-rose/25 to-rose/5",
+    tile: "bg-rose/15",
     tag: "bg-rose/15",
     arrow: "text-rose",
   },
   peach: {
-    tile: "from-peach/35 to-peach/5",
+    tile: "bg-peach/25",
     tag: "bg-peach/20",
     arrow: "text-coral",
   },
   sand: {
-    tile: "from-sand/50 to-sand/10",
+    tile: "bg-sand/40",
     tag: "bg-sand/35",
     arrow: "text-peach",
   },
@@ -53,7 +53,7 @@ export default function Projects() {
                 whileHover="hover"
                 whileTap={{ scale: 0.98 }}
                 // an odd one out at the end stretches across both columns
-                className={`${projects.length % 2 && i === projects.length - 1 ? "md:col-span-2" : ""} group flex flex-col rounded-[32px] border border-line bg-card/80 p-6 shadow-soft backdrop-blur transition-shadow hover:shadow-lift relative`}
+                className={`${projects.length % 2 && i === projects.length - 1 ? "md:col-span-2" : ""} group flex flex-col rounded-[32px] border border-line bg-card p-6 shadow-soft transition-shadow hover:shadow-lift relative`}
               >
                 <motion.div
                   variants={{ hover: { y: -6 } }}
@@ -68,7 +68,7 @@ export default function Projects() {
                         stiffness: 300,
                         damping: 12,
                       }}
-                      className={`grid size-16 place-items-center rounded-2xl bg-gradient-to-br text-3xl ${t.tile}`}
+                      className={`grid size-16 place-items-center rounded-2xl text-3xl ${t.tile}`}
                     >
                       {p.emoji}
                     </motion.div>
@@ -142,7 +142,7 @@ function VideoModal({ video, onClose }: { video: { title: string; src: string } 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 grid place-items-center bg-ink/40 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 grid place-items-center bg-ink/40 p-4"
           role="dialog"
           aria-modal="true"
           aria-label={`${video.title} demo`}

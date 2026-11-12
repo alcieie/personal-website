@@ -13,7 +13,7 @@ export default function Hero() {
     <section id="top" className="grid min-h-[78vh] items-center gap-12 pt-10 pb-24 md:grid-cols-[1.3fr_.7fr]">
       <motion.div initial="hidden" animate="show" transition={{ staggerChildren: 0.1 }}>
         <motion.div variants={rise} className="mb-6 flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-glass px-3.5 py-1.5 text-sm backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-1.5 text-sm">
             <span className="breathe size-2 rounded-full bg-coral" />
             {site.status}
           </span>
@@ -26,25 +26,19 @@ export default function Hero() {
         >
           Hi, I&apos;m{" "}
           <span className="relative inline-block whitespace-nowrap">
-            <span className="bg-gradient-to-r from-plum via-rose to-coral bg-clip-text text-transparent">
+            <span className="text-plum">
               {site.name}.
             </span>
             <svg className="absolute -bottom-3 left-0 h-4 w-full" viewBox="0 0 200 14" fill="none" aria-hidden>
               <motion.path
                 d="M3 9c30-7 62 5 96-1 30-5 62 4 98-4"
-                stroke="url(#underline)"
+                stroke="var(--coral)"
                 strokeWidth="5"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1.1, delay: 0.5, ease: "easeInOut" }}
               />
-              <defs>
-                <linearGradient id="underline" x1="0" x2="1">
-                  <stop stopColor="var(--rose)" />
-                  <stop offset="1" stopColor="var(--peach)" />
-                </linearGradient>
-              </defs>
             </svg>
           </span>
         </motion.h1>
@@ -63,7 +57,7 @@ export default function Hero() {
               href={site.resume}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              className="rounded-full border border-line bg-glass px-6 py-3 text-[0.95rem] font-medium text-ink backdrop-blur"
+              className="rounded-full border border-line bg-card px-6 py-3 text-[0.95rem] font-medium text-ink"
             >
               Résumé ↗
             </motion.a>
@@ -77,8 +71,8 @@ export default function Hero() {
         transition={{ type: "spring", stiffness: 90, damping: 14, delay: 0.2 }}
         className="relative mx-auto size-60 md:ml-auto md:mr-0 md:size-72"
       >
-        {/* gradient ring behind the photo — its shape slowly morphs */}
-        <div className="morph absolute -inset-3 bg-gradient-to-br from-plum via-rose to-peach opacity-80 blur-[2px]" />
+        {/* solid ring behind the photo — its shape slowly morphs */}
+        <div className="morph absolute -inset-3 bg-rose" />
         <motion.div
           whileHover={{ scale: 1.04, rotate: 3 }}
           transition={{ type: "spring", stiffness: 200, damping: 12 }}

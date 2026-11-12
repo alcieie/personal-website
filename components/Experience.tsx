@@ -10,8 +10,8 @@ export default function Experience() {
   return (
     <Section id="experience" title="Experience">
       <div className="relative space-y-4 pl-7 md:pl-9">
-        {/* the soft gradient thread linking every job */}
-        <div className="absolute top-3 bottom-3 left-2 w-1 rounded-full bg-gradient-to-b from-plum via-rose to-sand opacity-40 md:left-3" />
+        {/* the thread linking every job */}
+        <div className="absolute top-3 bottom-3 left-2 w-1 rounded-full bg-plum/30 md:left-3" />
 
         {experience.map((job, i) => (
           <motion.article
@@ -21,7 +21,7 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 90, damping: 16, delay: i * 0.08 }}
             whileHover={{ y: -4, scale: 1.01 }}
-            className="relative rounded-[28px] border border-line bg-card/80 p-6 shadow-soft backdrop-blur transition-shadow hover:shadow-lift md:p-7"
+            className="relative rounded-[28px] border border-line bg-card p-6 shadow-soft transition-shadow hover:shadow-lift md:p-7"
           >
             <span
               className={`absolute top-8 -left-[27px] size-4 rounded-full ring-4 ring-paper md:-left-[31px] ${dots[i % dots.length]}`}

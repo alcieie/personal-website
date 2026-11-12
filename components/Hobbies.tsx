@@ -24,7 +24,7 @@ export default function Hobbies() {
       <div
         ref={area}
         onClick={(e) => e.target === e.currentTarget && setOpen(null)}
-        className="relative grid grid-cols-2 place-items-center gap-x-4 gap-y-12 rounded-[40px] border border-line bg-gradient-to-br from-plum/10 via-rose/5 to-peach/15 px-4 py-12 md:block md:h-[620px] md:p-0"
+        className="relative grid grid-cols-2 place-items-center gap-x-4 gap-y-12 rounded-[40px] border border-line bg-paper-2 px-4 py-12 md:block md:h-[620px] md:p-0"
       >
         {/* faint dot grid on the play area */}
         <div className="pointer-events-none absolute inset-0 rounded-[40px] [background-image:radial-gradient(var(--line)_1.5px,transparent_1.5px)] [background-size:22px_22px]" />
@@ -174,7 +174,7 @@ function Collage({ hobby: h }: { hobby: Hobby }) {
           />
         ))}
       </div>
-      {h.note && <p className="mt-1 rounded-full bg-card px-3 py-1 font-serif text-lg leading-none text-ink italic shadow-soft">{h.note}</p>}
+      {h.note && <p className="mt-1 rounded-full bg-card px-3 py-1 font-mono text-sm leading-none text-ink italic shadow-soft">{h.note}</p>}
     </div>
   );
 }

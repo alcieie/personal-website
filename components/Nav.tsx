@@ -43,14 +43,14 @@ export default function Nav() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 24 }}
         onMouseLeave={() => setHovered(null)}
-        className="mx-auto flex w-fit max-w-full items-center gap-0.5 overflow-x-auto rounded-full border border-line bg-glass p-1.5 shadow-soft backdrop-blur-xl [scrollbar-width:none]"
+        className="mx-auto flex w-fit max-w-full items-center gap-0.5 overflow-x-auto rounded-full border border-line bg-card p-1.5 shadow-soft [scrollbar-width:none]"
       >
         {links.map(({ id, label, desktopOnly }) => (
           <a
             key={id}
             href={`#${id}`}
             onMouseEnter={() => setHovered(id)}
-            className={`relative isolate whitespace-nowrap rounded-full px-2 py-1.5 text-[0.82rem] sm:px-3.5 sm:text-[0.92rem] transition-colors duration-300 ${
+            className={`relative isolate whitespace-nowrap rounded-full px-1.5 py-1.5 text-[0.82rem] sm:px-3.5 sm:text-[0.92rem] transition-colors duration-300 ${
               desktopOnly ? "hidden sm:inline-block" : ""} ${
               pill === id ? "text-on-accent" : "text-ink-soft hover:text-ink"
             }`}

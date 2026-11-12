@@ -48,7 +48,7 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ type: "spring", stiffness: 70, damping: 16 }}
-      className="mb-10 overflow-hidden rounded-[44px] bg-gradient-to-br from-plum/20 via-rose/15 to-peach/25 px-6 py-16 text-center"
+      className="mb-10 overflow-hidden rounded-[44px] bg-paper-2 px-6 py-16 text-center"
     >
       <h2 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">Let&apos;s get in touch!</h2>
 
@@ -87,7 +87,7 @@ export default function Contact() {
             whileHover={{ y: -4, rotate: -8, scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 400, damping: 14 }}
-            className="grid size-12 place-items-center rounded-full bg-card/70 text-ink-soft shadow-soft backdrop-blur hover:text-ink"
+            className="grid size-12 place-items-center rounded-full border border-line bg-card text-ink-soft shadow-soft hover:text-ink"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               {icons[s.icon]}
