@@ -55,6 +55,8 @@ export default function Hero() {
           {site.resume && (
             <motion.a
               href={site.resume}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
               className="rounded-full border border-line bg-card px-6 py-3 text-[0.95rem] font-medium text-ink"

@@ -83,6 +83,8 @@ export default function Contact() {
           <motion.a
             key={s.label}
             href={s.href}
+            // web links open in a new tab; mailto stays put so it just opens the mail app
+            {...(s.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
             aria-label={s.label}
             whileHover={{ y: -4, rotate: -8, scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

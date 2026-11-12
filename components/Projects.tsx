@@ -86,7 +86,7 @@ export default function Projects() {
                   <h3 className="mt-5 font-display text-xl font-semibold text-ink">
                     {/* the link stretches over the whole card; cards without one have no arrow */}
                     {p.href ? (
-                      <a href={p.href} className="after:absolute after:inset-0 after:rounded-[32px]">
+                      <a href={p.href} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0 after:rounded-[32px]">
                         {p.title}
                       </a>
                     ) : (

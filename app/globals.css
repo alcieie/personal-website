@@ -20,6 +20,11 @@
   --sand: #fad98b;
   --on-accent: #ffffff;
   --line: rgba(61, 61, 107, 0.1);
+  /* cherry blossom petals (components/Petals.tsx) */
+  --petal-1: #f6b9cb;
+  --petal-2: #f3a5bc;
+  --petal-3: #fbd3de;
+  --petal-4: #f7c4d2;
 }
 
 /* night: the opposite side of the colour wheel — deep teal into mint.
@@ -40,6 +45,10 @@
   --sand: #cde8b9;
   --on-accent: #0d181c;
   --line: rgba(225, 239, 241, 0.09);
+  --petal-1: #78cbcb;
+  --petal-2: #8dd6bd;
+  --petal-3: #a8deb0;
+  --petal-4: #5bb8c4;
 }
 
 @theme inline {
