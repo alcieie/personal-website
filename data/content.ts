@@ -201,6 +201,6 @@ export const hobbies: Hobby[] = [
     note: "not very good, very enthusiastic",
     art: "cupcake",
     x: 60, y: 58, size: 115, tilt: 10,
-    photos: ["/hobbies/cooking/apple.jpg", "/hobbies/cooking/bowl.jpg", "/hobbies/cooking/cookies.jpg"],
+    photos: ["/hobbies/cooking/apple.jpg", "/hobbies/cooking/bowl.jpg", "/hobbies/cooking/pasta.jpg"],
   },
 ];
