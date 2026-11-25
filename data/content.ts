@@ -52,6 +52,7 @@ export const experience = [
 
 /* ------------------------------------------------------------
    PROJECTS — `tone` picks the accent colour: plum | rose | peach | sand
+   icon: palette | heatmap | dial | chip | callboard | glider (components/ProjectIcons.tsx)
    video: optional demo clip in /public/projects/ — adds a "watch demo" button
    ------------------------------------------------------------ */
 export const projects = [
@@ -59,7 +60,7 @@ export const projects = [
     title: "Colour Card",
     blurb:
       "Turns a photo into a palette with k-means in CIELAB space — each band sized by how much of the photo it covers.",
-    emoji: "🎨",
+    icon: "palette",
     tags: ["HTML", "k-means", "open source"],
     tone: "plum",
     href: "https://github.com/alcieie/ColourCard",
@@ -68,7 +69,7 @@ export const projects = [
     title: "Listening Analytics",
     blurb:
       "My Spotify history as a mood-ring trend chart, a listening heatmap, and skip rates by genre and artist.",
-    emoji: "🎧",
+    icon: "heatmap",
     tags: ["Next.js", "Spotify API", "Postgres"],
     tone: "rose",
     href: "https://github.com/alcieie/listening-analytics",
@@ -78,7 +79,7 @@ export const projects = [
     title: "Smart home climate control",
     blurb:
       "An FPGA thermostat that heats or cools on its own, with manual overrides and a vacation mode.",
-    emoji: "🌡️",
+    icon: "dial",
     tags: ["Verilog", "FPGA", "combinational logic"],
     tone: "peach",
     href: null, // ✏️ no link = no arrow; add a URL here to make the card clickable
@@ -87,7 +88,7 @@ export const projects = [
     title: "FPGA polarity controller",
     blurb:
       "Digital logic on an Altera MAX10, with a switch that flips whether the LEDs light up on high or low.",
-    emoji: "💡",
+    icon: "chip",
     tags: ["Verilog", "FPGA", "digital logic"],
     tone: "sand",
     href: null,
@@ -96,7 +97,7 @@ export const projects = [
     title: "Hospital communication board",
     blurb:
       "An ESP32 board for calling a nurse, with lights that follow the time of day to help prevent hospital delirium.",
-    emoji: "🏥",
+    icon: "callboard",
     tags: ["C++", "ESP32", "PWM"],
     tone: "plum",
     href: null,
@@ -105,7 +106,7 @@ export const projects = [
     title: "Conway's Game of Life",
     blurb:
       "The zero-player game in Python. Cells live, die and multiply by a few simple rules.",
-    emoji: "🧬",
+    icon: "glider",
     tags: ["Python", "simulation"],
     tone: "rose",
     href: "https://github.com/alcieie/game-of-life-gr-9",

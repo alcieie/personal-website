@@ -4,26 +4,31 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { projects } from "@/data/content";
+import ProjectIcon from "./ProjectIcons";
 import Section from "./Section";
 
 const tones = {
   plum: {
     tile: "bg-plum/15",
+    icon: "text-plum",
     tag: "bg-plum/12",
     arrow: "text-plum",
   },
   rose: {
     tile: "bg-rose/15",
+    icon: "text-rose",
     tag: "bg-rose/15",
     arrow: "text-rose",
   },
   peach: {
     tile: "bg-peach/25",
+    icon: "text-coral",
     tag: "bg-peach/20",
     arrow: "text-coral",
   },
   sand: {
     tile: "bg-sand/40",
+    icon: "text-ink",
     tag: "bg-sand/35",
     arrow: "text-peach",
   },
@@ -68,9 +73,9 @@ export default function Projects() {
                         stiffness: 300,
                         damping: 12,
                       }}
-                      className={`grid size-16 place-items-center rounded-2xl text-3xl ${t.tile}`}
+                      className={`grid size-16 place-items-center rounded-2xl ${t.tile} ${t.icon}`}
                     >
-                      {p.emoji}
+                      <ProjectIcon name={p.icon} />
                     </motion.div>
                     {p.href && (
                       <motion.span
